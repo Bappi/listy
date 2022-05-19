@@ -54,7 +54,7 @@ add_action( 'after_setup_theme', 'listy_setup' );
 ------------------------------------------------ */
 
 // Handle Customizer settings
-require get_template_directory() . '/inc/classes/class-listy-customize.php';
+require get_template_directory() . '/inc/class-listy-customize.php';
 
 
 /*	-----------------------------------------------------------------------------------------------
@@ -261,25 +261,6 @@ if ( ! function_exists( 'listy_ajax_results' ) ) {
 				?>
 
 				<p class="results-title"><?php _e( 'Search Results', 'listy' ); ?></p>
-
-				<ul>
-
-					<?php
-
-					// Custom loop
-					while ( $ajax_query->have_posts() ) :
-
-						$ajax_query->the_post();
-
-						// Load the appropriate content template
-						get_template_part( 'content-mobile-search' );
-
-					// End the loop
-					endwhile;
-
-					?>
-
-				</ul>
 
 				<?php if ( $ajax_query->max_num_pages > 1 ) : ?>
 
